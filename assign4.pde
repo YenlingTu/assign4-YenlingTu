@@ -22,6 +22,8 @@ final int START_BUTTON_Y = 360;
 
 float[] cabbageX, cabbageY, soldierX, soldierY;
 float soldierSpeed = 2f;
+int X_soldier,Y_soldier;
+
 
 float playerX, playerY;
 int playerCol, playerRow;
@@ -100,6 +102,10 @@ void setup() {
 
 	// Initialize soidiers and their position
 
+ X_soldier=floor(random(8));
+Y_soldier=floor(random(4));
+
+   
 	// Initialize cabbages and their position
 
 }
@@ -286,6 +292,14 @@ void draw() {
 		image(groundhogDisplay, playerX, playerY);
 
 		// Soldiers
+for(int i=0;i<6;i++){
+  int soldierX=X_soldier*80;
+  int soldierY=Y_soldier*80+i*320;
+  image(soldier,soldierX,soldierY);
+    soldierX+=soldierSpeed;
+  }
+
+
 		// > Remember to stop player's moving! (reset playerMoveTimer)
 		// > Remember to recalculate playerCol/playerRow when you reset playerX/playerY!
 		// > Remember to reset the soil under player's original position!
